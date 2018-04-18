@@ -35,6 +35,7 @@ public class GlobalModel {
     //MARK: Image
     public String getAllImages(){
         JSONArray jsonArray = new JSONArray();
+        
         for(Image i: this.images){
             String base64Image = Base64.getEncoder().encodeToString(i.getImg());
             JSONObject obj = new JSONObject();
@@ -50,29 +51,61 @@ public class GlobalModel {
         this.images.add(image);
     }
     
-    public List<Image> getImagesOfCategory(String catName){
+    public String getImagesOfCategory(String catName){
         List<Image> imgCat = new ArrayList();
         for(Image img: this.images){
             if(img.getCatName().equals(catName)){
                 imgCat.add(img);
             }
         }
-        return imgCat;
+        
+        JSONArray jsonArray = new JSONArray();
+        
+        for (Image i: imgCat) {
+            String base64Image = Base64.getEncoder().encodeToString(i.getImg());
+            JSONObject obj = new JSONObject();
+            obj.put("name", i.getName());
+            obj.put("img", base64Image);
+            obj.put("catName", i.getCatName());
+            jsonArray.add(obj);
+        }
+        return jsonArray.toJSONString();
     }
     
     //MARK: Category
-    public List<Category> getAllCategories(){
-        return this.categories;
+    public String getAllCategories(){
+        JSONArray jsonArray = new JSONArray();
+        
+        for(Category c: this.categories){
+            String base64Image = Base64.getEncoder().encodeToString(c.getImg());
+            JSONObject obj = new JSONObject();
+            obj.put("catName", c.getCatName());
+            obj.put("img", base64Image);
+            obj.put("title", c.getTitle());
+            obj.put("description", c.getDesc());
+            obj.put("facts", c.getFacts());
+            jsonArray.add(obj);
+        }
+        return jsonArray.toJSONString();
     }
     
-    public Category getSingleCategory(String catName){
-        Category singleCat = new Category();
-        for(Category cat: this.categories){
-            if(cat.getCatName().equals(catName)){
-                singleCat = cat;
+    public String getSingleCategory(String catName){
+        
+        JSONArray jsonArray = new JSONArray();
+        
+        for(Category c: this.categories){
+            if(c.getCatName().equals(catName)){
+                String base64Image = Base64.getEncoder().encodeToString(c.getImg());
+                JSONObject obj = new JSONObject();
+                obj.put("catName", c.getCatName());
+                obj.put("img", base64Image);
+                obj.put("title", c.getTitle());
+                obj.put("description", c.getDesc());
+                obj.put("facts", c.getFacts());
+                jsonArray.add(obj);
             }
         }
-        return singleCat;
+        return jsonArray.toJSONString();
     }
     
     //MARK: Item 

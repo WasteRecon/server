@@ -5,9 +5,7 @@
  */
 package REST;
 
-import Model.Category;
 import Model.GlobalModel;
-import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -23,14 +21,14 @@ public class CategoryREST {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Category> getAllCategories() {
+    public String getAllCategories() {
         return GlobalModel.getInstance().getAllCategories();
     }
     
     @GET
     @Path("{catName}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Category getSingleCategory(@PathParam("catName") String catName) {
+    public String getSingleCategory(@PathParam("catName") String catName) {
         return GlobalModel.getInstance().getSingleCategory(catName);
     }
 }

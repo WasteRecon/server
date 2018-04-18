@@ -8,7 +8,6 @@ package REST;
 import Model.GlobalModel;
 import Model.Image;
 import java.util.Base64;
-import java.util.List;
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -48,7 +47,7 @@ public class ImageREST {
     @GET
     @Path("{catName}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Image> getImagesOfCategory(@PathParam("catName") String catName){
+    public String getImagesOfCategory(@PathParam("catName") String catName){
         return GlobalModel.getInstance().getImagesOfCategory(catName);
     }
     
