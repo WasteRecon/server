@@ -18,7 +18,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.json.simple.JSONObject;
 
 /**
  *
@@ -43,7 +42,7 @@ public class ImageREST {
         byte[] img = Base64.getDecoder().decode(base64Image);
         Image newImage = new Image(name, img, catName);
         GlobalModel.getInstance().addImage(newImage);
-        return "This image has been posted: " + name + " and" + catName;
+        return "This image has been posted: " + newImage;
     }
     
     @GET
@@ -51,5 +50,12 @@ public class ImageREST {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Image> getImagesOfCategory(@PathParam("catName") String catName){
         return GlobalModel.getInstance().getImagesOfCategory(catName);
+    }
+    
+    @GET
+    @Path("test")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void test(){
+        
     }
 }
