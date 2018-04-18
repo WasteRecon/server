@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
 public class ImageREST {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Image> getAllImages(){
+    public String getAllImages(){
         return GlobalModel.getInstance().getAllImages();
     }
     

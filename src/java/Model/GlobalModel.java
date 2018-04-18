@@ -6,8 +6,10 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
-import javax.json.JsonObject;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 /**
  *
@@ -31,8 +33,17 @@ public class GlobalModel {
     }
     
     //MARK: Image
-    public List<Image> getAllImages(){
-        return this.images;
+    public String getAllImages(){
+        JSONArray jsonArray = new JSONArray();
+        for(Image i: this.images){
+            String base64Image = Base64.getEncoder().encodeToString(i.getImg());
+            JSONObject obj = new JSONObject();
+            obj.put("name", i.getName());
+            obj.put("img", base64Image);
+            obj.put("catName", i.getCatName());
+            jsonArray.add(obj);
+        }
+        return jsonArray.toJSONString();
     }
     
     public void addImage(Image image){
