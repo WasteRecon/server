@@ -21,6 +21,8 @@ public class GlobalModel {
     private final List<Item> items = new ArrayList();
     
     private GlobalModel() {
+        items.add(new Item("plasticCup", "cup", "plastic"));
+        items.add(new Item("lightBulb", "lightbulb", "glass"));
     }
     
     public static GlobalModel getInstance() {
