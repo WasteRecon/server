@@ -11,14 +11,20 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
+import Model.CategoriesData;
+
 /**
  *
  * @author congthanhptnk
  */
 public class GlobalModel {
-    private final List<Category> categories = new ArrayList();
+    private CategoriesData cd = new CategoriesData();
+    
+    private final List<Category> categories = cd.populateCategories();
     private final List<Image> images = new ArrayList();
     private final List<Item> items = new ArrayList();
+    
+    
     
     private GlobalModel() {
     }
