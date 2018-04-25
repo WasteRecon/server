@@ -1,0 +1,11 @@
+{
+    "items": [{
+        "catName": "myCatName",
+        "shape": "myShape",
+        "material": "myMat"
+    }, {
+        "catName": "myCatName2",
+        "shape": "myShape2",
+        "material": "myMat2"
+    }]
+}

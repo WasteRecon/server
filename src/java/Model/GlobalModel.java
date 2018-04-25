@@ -11,18 +11,26 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
+import Model.CategoriesData;
+
 /**
  *
  * @author congthanhptnk
  */
 public class GlobalModel {
+    private CategoriesData cd = new CategoriesData();
+    
     private final List<Category> categories = new ArrayList();
     private final List<Image> images = new ArrayList();
-    private final List<Item> items = new ArrayList();
+    private final List<Item> items;
+    
+    
     
     private GlobalModel() {
-        items.add(new Item("plasticCup", "cup", "plastic"));
-        items.add(new Item("lightBulb", "lightbulb", "glass"));
+        //items.add(new Item("plasticCup", "cup", "plastic"));
+        //items.add(new Item("lightBulb", "lightbulb", "glass"));
+        items = cd.populateCategories();
+        System.out.println("Is this working");
     }
     
     public static GlobalModel getInstance() {
