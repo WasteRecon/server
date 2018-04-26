@@ -37,7 +37,7 @@ public class CategoriesData {
         //File x = new File("/WasteRecon/newjson.json");
         //System.out.println(x.getAbsolutePath());
         try {            
-            JSONObject o = (JSONObject) parser.parse(new FileReader("/Users/congthanhptnk/NetBeansProjects/WasteRecon/newjson.json"));
+            JSONObject o = (JSONObject) parser.parse(new FileReader("/Users/roba/Documents/WasteRecon-project/server/newjson.json"));
             JSONArray items = (JSONArray) o.get("items");
             
             for(Object i: items){

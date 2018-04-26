@@ -11,8 +11,6 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
-import Model.CategoriesData;
-
 /**
  *
  * @author congthanhptnk
@@ -116,6 +114,10 @@ public class GlobalModel {
             }
         }
         return jsonArray.toJSONString();
+    }
+    
+    public void addCategory(Category c) {
+        this.categories.add(c);
     }
     
     //MARK: Item 

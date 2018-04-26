@@ -32,6 +32,7 @@ public class ApplicationConfig extends Application {
         resources.add(REST.CategoryREST.class);
         resources.add(REST.ImageREST.class);
         resources.add(REST.ItemREST.class);
+        resources.add(REST.PopulateREST.class);
     }
     
 }
