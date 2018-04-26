@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/newjson.json</file>
             <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/REST/ItemREST.java</file>
             <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/Model/GlobalModel.java</file>
             <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/REST/CategoryREST.java</file>
-            <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/REST/ImageREST.java</file>
+            <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/categories.json</file>
             <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/Model/CategoriesData.java</file>
             <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/Model/Category.java</file>
-            <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/java/Model/Image.java</file>
-            <file>file:/Users/congthanhptnk/NetBeansProjects/WasteRecon/src/conf/categories.json</file>
         </group>
     </open-files>
 </project-private>
