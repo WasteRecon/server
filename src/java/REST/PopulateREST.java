@@ -7,6 +7,8 @@ package REST;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonValue;
@@ -45,7 +47,30 @@ public class PopulateREST {
         //for(Object i: categories){
           //      System.out.println(i+"");
             //}    
-        System.out.print(arr);
+        //System.out.print(arr);
+        return "Successfully consumed JSON and populated server";
+    }
+    
+    @POST
+    @Path("test")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String populate(String j) {
+        //String categories = j.get("Categories").toString();
+        try{
+        JSONObject o = (JSONObject)this.parser.parse(j);
+        JSONArray categories = (JSONArray)o.get("Categories");
+        for(Object x: categories){
+            System.out.print(x);
+        }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            System.out.print("abc: Parse exception");
+        }
+        //for(Object i: categories){
+          //      System.out.println(i+"");
+            //}    
+        //System.out.print(categories);
         return "Successfully consumed JSON and populated server";
     }
 }
