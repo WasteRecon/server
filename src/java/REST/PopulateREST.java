@@ -5,9 +5,12 @@
  */
 package REST;
 
+import Model.Category;
+import Model.GlobalModel;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -41,36 +44,16 @@ public class PopulateREST {
         JsonArray arr = jsonObject.getJsonArray("Categories");
         
         for(JsonValue x: arr){
-            String name = x.asJsonObject().getString("name");
-            System.out.print(name);
+            String catName = x.asJsonObject().getString("catName");
+            String title = x.asJsonObject().getString("title");
+            String desc = x.asJsonObject().getString("description");
+            String facts = x.asJsonObject().getString("facts");
+            String img64 = x.asJsonObject().getString("img");
+            
+            byte[] imgByte = Base64.getDecoder().decode(img64);
+            
+            GlobalModel.getInstance().addCategory(new Category(catName, title, desc, facts, imgByte));
         }
-        //for(Object i: categories){
-          //      System.out.println(i+"");
-            //}    
-        //System.out.print(arr);
-        return "Successfully consumed JSON and populated server";
-    }
-    
-    @POST
-    @Path("test")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String populate(String j) {
-        //String categories = j.get("Categories").toString();
-        try{
-        JSONObject o = (JSONObject)this.parser.parse(j);
-        JSONArray categories = (JSONArray)o.get("Categories");
-        for(Object x: categories){
-            System.out.print(x);
-        }
-        } catch (ParseException e) {
-            e.printStackTrace();
-            System.out.print("abc: Parse exception");
-        }
-        //for(Object i: categories){
-          //      System.out.println(i+"");
-            //}    
-        //System.out.print(categories);
         return "Successfully consumed JSON and populated server";
     }
 }
