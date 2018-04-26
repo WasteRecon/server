@@ -5,6 +5,11 @@
  */
 package REST;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonValue;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -13,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -29,16 +35,17 @@ public class PopulateREST {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String populateCategories(JSONObject jsonObject) {
+    public String populateCategories(JsonObject jsonObject) {
+        JsonArray arr = jsonObject.getJsonArray("Categories");
         
-        JSONObject o = (JSONObject) parser.parse(jsonObject);
-        
-        JSONArray categories = (JSONArray) o.get("Categories");
-        
-        for(Object i: categories){
-                System.out.println(i+"");
-            }
-        
+        for(JsonValue x: arr){
+            String name = x.asJsonObject().getString("name");
+            System.out.print(name);
+        }
+        //for(Object i: categories){
+          //      System.out.println(i+"");
+            //}    
+        System.out.print(arr);
         return "Successfully consumed JSON and populated server";
     }
 }
