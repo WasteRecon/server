@@ -24,9 +24,8 @@ public class GlobalModel {
     
     
     private GlobalModel() {
-        //items.add(new Item("plasticCup", "cup", "plastic"));
-        //items.add(new Item("lightBulb", "lightbulb", "glass"));
-        System.out.println("Is this working");
+        items.add(new Item("plasticCup", "cup", "plastic"));
+        items.add(new Item("lightBulb", "lightbulb", "glass"));
     }
     
     public static GlobalModel getInstance() {

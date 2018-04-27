@@ -38,9 +38,12 @@ public class ImageREST {
         String name = jsonObject.getString("name");
         String catName = jsonObject.getString("catName");
         
+        System.out.print(name);
         byte[] img = Base64.getDecoder().decode(base64Image);
+        
         Image newImage = new Image(name, img, catName);
         GlobalModel.getInstance().addImage(newImage);
+        System.out.print("Image posted");
         return "This image has been posted: " + newImage;
     }
     
