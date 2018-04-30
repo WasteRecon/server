@@ -24,8 +24,17 @@ public class GlobalModel {
     
     
     private GlobalModel() {
-        items.add(new Item("plasticCup", "cup", "plastic"));
-        items.add(new Item("lightBulb", "lightbulb", "glass"));
+        items.add(new Item("plasticBottle", "Bottle", "plastic"));
+        items.add(new Item("glassBottle", "Bottle", "glass"));
+        items.add(new Item("paperBottle", "Bottle", "paper"));
+        items.add(new Item("clothes", "Shirt", "fabric"));
+        items.add(new Item("clothes", "Pants", "fabric"));
+        items.add(new Item("plasticClothes", "Shirt", "plastic"));
+        items.add(new Item("plasticClothes", "Pants", "plastic"));
+        items.add(new Item("lightBulb", "Lightbulb", "glass"));
+        items.add(new Item("plasticCup", "Cup", "plastic"));
+        items.add(new Item("glassCup", "Cup", "glass"));
+        items.add(new Item("paperCup", "Cup", "paper")); 
     }
     
     public static GlobalModel getInstance() {
