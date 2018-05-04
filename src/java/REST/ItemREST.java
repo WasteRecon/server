@@ -27,9 +27,6 @@ public class ItemREST {
     public ItemREST() {
     }
     
-    /**
-     *
-     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)

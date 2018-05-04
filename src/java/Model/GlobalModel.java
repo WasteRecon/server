@@ -18,23 +18,20 @@ import org.json.simple.JSONArray;
 public class GlobalModel {
     
     private final List<Category> categories = new ArrayList();
-    private final List<Image> images = new ArrayList();
     private final List<Item> items = new ArrayList();
     
-    
-    
     private GlobalModel() {
-        items.add(new Item("plasticBottle", "Bottle", "plastic"));
-        items.add(new Item("glassBottle", "Bottle", "glass"));
-        items.add(new Item("paperBottle", "Bottle", "paper"));
-        items.add(new Item("clothes", "Shirt", "fabric"));
-        items.add(new Item("clothes", "Pants", "fabric"));
-        items.add(new Item("plasticClothes", "Shirt", "plastic"));
-        items.add(new Item("plasticClothes", "Pants", "plastic"));
-        items.add(new Item("lightBulb", "Lightbulb", "glass"));
-        items.add(new Item("plasticCup", "Cup", "plastic"));
-        items.add(new Item("glassCup", "Cup", "glass"));
-        items.add(new Item("paperCup", "Cup", "paper")); 
+        items.add(new Item("plasticBottle", "bottle", "plastic"));
+        items.add(new Item("glassBottle", "bottle", "glass"));
+        items.add(new Item("paperBottle", "bottle", "paper"));
+        items.add(new Item("clothes", "shirt", "fabric"));
+        items.add(new Item("clothes", "pants", "fabric"));
+        items.add(new Item("plasticClothes", "shirt", "plastic"));
+        items.add(new Item("plasticClothes", "pants", "plastic"));
+        items.add(new Item("lightBulb", "lightbulb", "glass"));
+        items.add(new Item("plasticCup", "cup", "plastic"));
+        items.add(new Item("glassCup", "cup", "glass"));
+        items.add(new Item("paperCup", "cup", "paper")); 
     }
     
     public static GlobalModel getInstance() {
@@ -44,46 +41,6 @@ public class GlobalModel {
     private static class GlobalModelHolder {
 
         private static final GlobalModel INSTANCE = new GlobalModel();
-    }
-    
-    //MARK: Image
-    public String getAllImages(){
-        JSONArray jsonArray = new JSONArray();
-        
-        for(Image i: this.images){
-            String base64Image = Base64.getEncoder().encodeToString(i.getImg());
-            JSONObject obj = new JSONObject();
-            obj.put("name", i.getName());
-            obj.put("img", base64Image);
-            obj.put("catName", i.getCatName());
-            jsonArray.add(obj);
-        }
-        return jsonArray.toJSONString();
-    }
-    
-    public void addImage(Image image){
-        this.images.add(image);
-    }
-    
-    public String getImagesOfCategory(String catName){
-        List<Image> imgCat = new ArrayList();
-        for(Image img: this.images){
-            if(img.getCatName().equals(catName)){
-                imgCat.add(img);
-            }
-        }
-        
-        JSONArray jsonArray = new JSONArray();
-        
-        for (Image i: imgCat) {
-            String base64Image = Base64.getEncoder().encodeToString(i.getImg());
-            JSONObject obj = new JSONObject();
-            obj.put("name", i.getName());
-            obj.put("img", base64Image);
-            obj.put("catName", i.getCatName());
-            jsonArray.add(obj);
-        }
-        return jsonArray.toJSONString();
     }
     
     //MARK: Category

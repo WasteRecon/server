@@ -30,7 +30,6 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(REST.CategoryREST.class);
-        resources.add(REST.ImageREST.class);
         resources.add(REST.ItemREST.class);
         resources.add(REST.PopulateREST.class);
     }
